@@ -1,0 +1,171 @@
+// Modal
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-index-modal;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+// Modal dialog
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: $spacing-md;
+  pointer-events: none;
+
+  @include media-breakpoint-up(sm) {
+    max-width: 500px;
+    margin: $spacing-xl auto;
+  }
+
+  @include media-breakpoint-up(md) {
+    max-width: 600px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: 800px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: 1140px;
+  }
+}
+
+// Modal content
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: $light-color;
+  background-clip: padding-box;
+  border: $border-width-base solid $border-color-base;
+  border-radius: $border-radius-base;
+  outline: 0;
+  box-shadow: $shadow-lg;
+}
+
+// Modal header
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: $spacing-md;
+  border-bottom: $border-width-base solid $border-color-base;
+  border-top-left-radius: calc($border-radius-base - $border-width-base);
+  border-top-right-radius: calc($border-radius-base - $border-width-base);
+
+  .close {
+    padding: $spacing-sm;
+    margin: -$spacing-sm;
+    background-color: transparent;
+    border: 0;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: $dark-color;
+    text-shadow: 0 1px 0 $light-color;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+// Modal title
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+// Modal body
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: $spacing-md;
+}
+
+// Modal footer
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: $spacing-md;
+  border-top: $border-width-base solid $border-color-base;
+  border-bottom-right-radius: calc($border-radius-base - $border-width-base);
+  border-bottom-left-radius: calc($border-radius-base - $border-width-base);
+
+  > :not(:first-child) {
+    margin-left: $spacing-sm;
+  }
+
+  > :not(:last-child) {
+    margin-right: $spacing-sm;
+  }
+}
+
+// Modal sizes
+.modal-sm {
+  @include media-breakpoint-up(sm) {
+    max-width: 300px;
+  }
+}
+
+.modal-lg {
+  @include media-breakpoint-up(md) {
+    max-width: 800px;
+  }
+}
+
+.modal-xl {
+  @include media-breakpoint-up(lg) {
+    max-width: 1140px;
+  }
+}
+
+// Modal backdrop
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-index-modal-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: $dark-color;
+
+  &.fade {
+    opacity: 0;
+  }
+
+  &.show {
+    opacity: 0.5;
+  }
+}
+
+// Modal scrollbar measure
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Modal open
+.modal-open {
+  overflow: hidden;
+
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+} 

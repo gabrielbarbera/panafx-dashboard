@@ -1,0 +1,37 @@
+// Import core files
+@import 'core/variables';
+@import 'core/mixins';
+@import 'core/reset';
+@import 'core/typography';
+@import 'core/utilities';
+
+// Import components
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/tables';
+@import 'components/modals';
+@import 'components/alerts';
+@import 'components/navbar';
+@import 'components/sidebar';
+@import 'components/footer';
+
+// Import layouts
+@import 'layouts/grid';
+@import 'layouts/header';
+@import 'layouts/main';
+@import 'layouts/footer';
+
+// Import pages
+@import 'pages/auth';
+@import 'pages/dashboard';
+@import 'pages/send-money';
+@import 'pages/transactions';
+@import 'pages/profile';
+
+// Import themes
+@import 'themes/default';
+
+// Import utils
+@import 'utils/animations';
+@import 'utils/helpers'; 

@@ -1,0 +1,518 @@
+// Form controls
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: 1rem;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: $light-color;
+  background-clip: padding-box;
+  border: $border-width-base solid $border-color-base;
+  border-radius: $border-radius-base;
+  transition: $transition-base;
+
+  &:focus {
+    color: $dark-color;
+    background-color: $light-color;
+    border-color: $primary-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+
+  &::placeholder {
+    color: $secondary-color;
+    opacity: 1;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $light-color;
+    opacity: 0.65;
+  }
+}
+
+// Form labels
+.form-label {
+  display: inline-block;
+  margin-bottom: $spacing-xs;
+  font-weight: 500;
+}
+
+// Form text
+.form-text {
+  display: block;
+  margin-top: $spacing-xs;
+  color: $secondary-color;
+}
+
+// Form validation
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border-color: $success-color;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: $danger-color;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+// Form groups
+.form-group {
+  margin-bottom: $spacing-md;
+}
+
+// Form check
+.form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-left: -1.25rem;
+}
+
+.form-check-label {
+  margin-bottom: 0;
+}
+
+// Form inline
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  .form-check {
+    width: 100%;
+  }
+
+  @include media-breakpoint-up(sm) {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .form-group {
+      display: flex;
+      flex: 0 0 auto;
+      flex-flow: row wrap;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .form-control {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      padding-left: 0;
+    }
+
+    .form-check-input {
+      position: static;
+      margin-top: 0;
+      margin-right: 0.3125rem;
+      margin-left: 0;
+    }
+  }
+}
+
+// Input groups
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+
+  > .form-control,
+  > .form-control-plaintext,
+  > .custom-select,
+  > .custom-file {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+
+  > .form-control + .form-control,
+  > .form-control + .custom-select,
+  > .form-control + .custom-file,
+  > .custom-select + .form-control,
+  > .custom-select + .custom-select,
+  > .custom-select + .custom-file,
+  > .custom-file + .form-control,
+  > .custom-file + .custom-select,
+  > .custom-file + .custom-file {
+    margin-left: -$border-width-base;
+  }
+
+  > .form-control:focus,
+  > .custom-select:focus,
+  > .custom-file .custom-file-input:focus ~ .custom-file-label {
+    z-index: 3;
+  }
+
+  > .custom-file .custom-file-input:focus {
+    z-index: 4;
+  }
+
+  > .form-control:not(:last-child),
+  > .custom-select:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  > .form-control:not(:first-child),
+  > .custom-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.input-group-prepend,
+.input-group-append {
+  display: flex;
+}
+
+.input-group-prepend .btn,
+.input-group-append .btn {
+  position: relative;
+  z-index: 2;
+}
+
+.input-group-prepend .btn + .btn,
+.input-group-prepend .btn + .input-group-text,
+.input-group-prepend .input-group-text + .input-group-text,
+.input-group-prepend .input-group-text + .btn,
+.input-group-append .btn + .btn,
+.input-group-append .btn + .input-group-text,
+.input-group-append .input-group-text + .input-group-text,
+.input-group-append .input-group-text + .btn {
+  margin-left: -$border-width-base;
+}
+
+.input-group-prepend {
+  margin-right: -$border-width-base;
+}
+
+.input-group-append {
+  margin-left: -$border-width-base;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: $line-height-base;
+  text-align: center;
+  white-space: nowrap;
+  color: $dark-color;
+  background-color: $light-color;
+  border: $border-width-base solid $border-color-base;
+  border-radius: $border-radius-base;
+}
+
+// Forms
+.form {
+  // Form group
+  .form-group {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // Form label
+    .form-label {
+      display: block;
+      margin-bottom: $spacing-xs;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $dark-color;
+
+      &.required::after {
+        content: '*';
+        margin-left: $spacing-xs;
+        color: $danger-color;
+      }
+    }
+
+    // Form text
+    .form-text {
+      display: block;
+      margin-top: $spacing-xs;
+      font-size: 0.75rem;
+      color: rgba($dark-color, 0.7);
+    }
+
+    // Form control
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: $dark-color;
+      background-color: $light-color;
+      border: $border-width-base solid $border-color-base;
+      border-radius: $border-radius-base;
+      transition: $transition-base;
+
+      &:focus {
+        color: $dark-color;
+        background-color: $light-color;
+        border-color: $primary-color;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+      }
+
+      &::placeholder {
+        color: rgba($dark-color, 0.5);
+      }
+
+      &:disabled,
+      &[readonly] {
+        background-color: rgba($dark-color, 0.05);
+        opacity: 1;
+      }
+    }
+
+    // Form select
+    .form-select {
+      display: block;
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: $dark-color;
+      background-color: $light-color;
+      border: $border-width-base solid $border-color-base;
+      border-radius: $border-radius-base;
+      transition: $transition-base;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right $spacing-md center;
+      background-size: 16px 12px;
+
+      &:focus {
+        border-color: $primary-color;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+      }
+
+      &:disabled {
+        background-color: rgba($dark-color, 0.05);
+        opacity: 1;
+      }
+    }
+
+    // Form check
+    .form-check {
+      position: relative;
+      display: block;
+      padding-left: 1.5rem;
+      margin-bottom: $spacing-sm;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .form-check-input {
+        position: absolute;
+        margin-top: 0.3rem;
+        margin-left: -1.5rem;
+        width: 1rem;
+        height: 1rem;
+        border: $border-width-base solid $border-color-base;
+        border-radius: $border-radius-base;
+        appearance: none;
+        background-color: $light-color;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: $transition-base;
+
+        &:checked {
+          background-color: $primary-color;
+          border-color: $primary-color;
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+        }
+
+        &:focus {
+          border-color: $primary-color;
+          outline: 0;
+          box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+        }
+
+        &:disabled {
+          background-color: rgba($dark-color, 0.05);
+          opacity: 1;
+        }
+      }
+
+      .form-check-label {
+        font-size: 0.875rem;
+        color: $dark-color;
+      }
+    }
+
+    // Form validation
+    &.is-valid {
+      .form-control,
+      .form-select {
+        border-color: $success-color;
+
+        &:focus {
+          border-color: $success-color;
+          box-shadow: 0 0 0 0.2rem rgba($success-color, 0.25);
+        }
+      }
+
+      .form-check-input {
+        border-color: $success-color;
+
+        &:checked {
+          background-color: $success-color;
+          border-color: $success-color;
+        }
+      }
+
+      .valid-feedback {
+        display: block;
+        color: $success-color;
+        font-size: 0.75rem;
+        margin-top: $spacing-xs;
+      }
+    }
+
+    &.is-invalid {
+      .form-control,
+      .form-select {
+        border-color: $danger-color;
+
+        &:focus {
+          border-color: $danger-color;
+          box-shadow: 0 0 0 0.2rem rgba($danger-color, 0.25);
+        }
+      }
+
+      .form-check-input {
+        border-color: $danger-color;
+
+        &:checked {
+          background-color: $danger-color;
+          border-color: $danger-color;
+        }
+      }
+
+      .invalid-feedback {
+        display: block;
+        color: $danger-color;
+        font-size: 0.75rem;
+        margin-top: $spacing-xs;
+      }
+    }
+  }
+
+  // Form actions
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-top: $spacing-lg;
+
+    .btn {
+      flex: 1;
+    }
+  }
+
+  // Form inline
+  &.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: $spacing-sm;
+
+    .form-group {
+      margin-bottom: 0;
+    }
+  }
+
+  // Form horizontal
+  &.form-horizontal {
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -$spacing-md;
+      margin-left: -$spacing-md;
+
+      .form-label {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding-right: $spacing-md;
+        padding-left: $spacing-md;
+        margin-bottom: 0;
+        align-self: center;
+      }
+
+      .form-control-wrapper {
+        flex: 0 0 75%;
+        max-width: 75%;
+        padding-right: $spacing-md;
+        padding-left: $spacing-md;
+      }
+    }
+  }
+
+  // Responsive forms
+  @include media-breakpoint-down(md) {
+    &.form-horizontal {
+      .form-group {
+        .form-label,
+        .form-control-wrapper {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .form-label {
+          margin-bottom: $spacing-xs;
+        }
+      }
+    }
+
+    .form-actions {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+} 

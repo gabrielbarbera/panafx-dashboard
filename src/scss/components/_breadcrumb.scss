@@ -1,0 +1,234 @@
+// Breadcrumb
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-md;
+  list-style: none;
+  background-color: rgba($light-color, 0.1);
+  border-radius: $border-radius-base;
+
+  // Breadcrumb item
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    color: $dark-color;
+    font-size: 0.875rem;
+    line-height: 1.5;
+
+    // Breadcrumb item with link
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: $transition-base;
+
+      &:hover {
+        color: darken($primary-color, 10%);
+        text-decoration: underline;
+      }
+    }
+
+    // Breadcrumb item with icon
+    .breadcrumb-icon {
+      margin-right: $spacing-xs;
+      font-size: 0.875rem;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    // Breadcrumb item with badge
+    .badge {
+      margin-left: $spacing-xs;
+    }
+
+    // Breadcrumb item active state
+    &.active {
+      color: $secondary-color;
+      font-weight: 600;
+    }
+
+    // Breadcrumb item disabled state
+    &.disabled {
+      color: $secondary-color;
+      pointer-events: none;
+    }
+
+    // Breadcrumb item variants
+    &.breadcrumb-item-primary {
+      color: $primary-color;
+
+      a {
+        color: darken($primary-color, 10%);
+
+        &:hover {
+          color: darken($primary-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-secondary {
+      color: $secondary-color;
+
+      a {
+        color: darken($secondary-color, 10%);
+
+        &:hover {
+          color: darken($secondary-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-success {
+      color: $success-color;
+
+      a {
+        color: darken($success-color, 10%);
+
+        &:hover {
+          color: darken($success-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-danger {
+      color: $danger-color;
+
+      a {
+        color: darken($danger-color, 10%);
+
+        &:hover {
+          color: darken($danger-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-warning {
+      color: $warning-color;
+
+      a {
+        color: darken($warning-color, 10%);
+
+        &:hover {
+          color: darken($warning-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-info {
+      color: $info-color;
+
+      a {
+        color: darken($info-color, 10%);
+
+        &:hover {
+          color: darken($info-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-light {
+      color: $light-color;
+
+      a {
+        color: darken($light-color, 10%);
+
+        &:hover {
+          color: darken($light-color, 20%);
+        }
+      }
+    }
+
+    &.breadcrumb-item-dark {
+      color: $dark-color;
+
+      a {
+        color: lighten($dark-color, 10%);
+
+        &:hover {
+          color: lighten($dark-color, 20%);
+        }
+      }
+    }
+  }
+
+  // Breadcrumb divider
+  .breadcrumb-divider {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 $spacing-xs;
+    color: $secondary-color;
+    font-size: 0.875rem;
+    line-height: 1;
+
+    // Breadcrumb divider with icon
+    .breadcrumb-divider-icon {
+      font-size: 0.75rem;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
+
+  // Breadcrumb variants
+  &.breadcrumb-primary {
+    background-color: rgba($primary-color, 0.1);
+    border: $border-width-base solid rgba($primary-color, 0.2);
+  }
+
+  &.breadcrumb-secondary {
+    background-color: rgba($secondary-color, 0.1);
+    border: $border-width-base solid rgba($secondary-color, 0.2);
+  }
+
+  &.breadcrumb-success {
+    background-color: rgba($success-color, 0.1);
+    border: $border-width-base solid rgba($success-color, 0.2);
+  }
+
+  &.breadcrumb-danger {
+    background-color: rgba($danger-color, 0.1);
+    border: $border-width-base solid rgba($danger-color, 0.2);
+  }
+
+  &.breadcrumb-warning {
+    background-color: rgba($warning-color, 0.1);
+    border: $border-width-base solid rgba($warning-color, 0.2);
+  }
+
+  &.breadcrumb-info {
+    background-color: rgba($info-color, 0.1);
+    border: $border-width-base solid rgba($info-color, 0.2);
+  }
+
+  &.breadcrumb-light {
+    background-color: rgba($light-color, 0.1);
+    border: $border-width-base solid rgba($light-color, 0.2);
+  }
+
+  &.breadcrumb-dark {
+    background-color: rgba($dark-color, 0.1);
+    border: $border-width-base solid rgba($dark-color, 0.2);
+  }
+
+  // Responsive breadcrumbs
+  @include media-breakpoint-down(md) {
+    padding: $spacing-xs $spacing-sm;
+    margin-bottom: $spacing-sm;
+
+    .breadcrumb-item {
+      font-size: 0.75rem;
+
+      .breadcrumb-icon {
+        font-size: 0.75rem;
+      }
+    }
+
+    .breadcrumb-divider {
+      padding: 0 $spacing-xs;
+      font-size: 0.75rem;
+
+      .breadcrumb-divider-icon {
+        font-size: 0.65rem;
+      }
+    }
+  }
+} 

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="PanaFX - Money Transfer Application" name="description">
+    <meta content="PanaFX" name="author">
+    <title>Transactions | PanaFX</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico">
+
+    <!-- App CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/app.min.css" rel="stylesheet" type="text/css">
+    <!-- DataTables CSS -->
+    <link href="../css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- Begin page -->
+    <div id="app-layout">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <div class="container-fluid">
+          <ul class="list-unstyled topnav-menu float-end mb-0">
+            <li class="dropdown notification-list topbar-dropdown">
+              <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="../images/users/default-avatar.jpg" alt="user-image" class="rounded-circle">
+                <span class="pro-user-name ms-1" id="user-name">
+                  Loading... <i class="mdi mdi-chevron-down"></i>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <a href="my-account.html" class="dropdown-item notify-item">
+                  <i class="fe-user"></i>
+                  <span>My Account</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item notify-item" id="logout-btn">
+                  <i class="fe-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- LOGO -->
+          <div class="logo-box">
+            <a href="index.html" class="logo logo-light text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-light.png" alt="" height="16">
+              </span>
+            </a>
+            <a href="index.html" class="logo logo-dark text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-dark.png" alt="" height="16">
+              </span>
+            </a>
+          </div>
+
+          <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+            <li>
+              <button class="button-menu-mobile disable-btn">
+                <i class="fe-menu"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end Topbar -->
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left-side-menu">
+        <div class="h-100" data-simplebar>
+          <!-- User box -->
+          <div class="user-box text-center">
+            <img src="../images/users/default-avatar.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+            <div class="dropdown">
+              <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false" id="sidebar-user-name">Loading...</a>
+            </div>
+          </div>
+
+          <!--- Sidemenu -->
+          <div id="sidebar-menu">
+            <ul id="side-menu">
+              <li>
+                <a href="index.html">
+                  <i class="mdi mdi-view-dashboard-outline"></i>
+                  <span> Dashboard </span>
+                </a>
+              </li>
+              <li>
+                <a href="send-money.html">
+                  <i class="mdi mdi-send"></i>
+                  <span> Send Money </span>
+                </a>
+              </li>
+              <li>
+                <a href="transactions-request.html">
+                  <i class="mdi mdi-format-list-bulleted"></i>
+                  <span> Transactions </span>
+                </a>
+              </li>
+              <li>
+                <a href="my-account.html">
+                  <i class="mdi mdi-account"></i>
+                  <span> My Account </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sidebar -->
+        </div>
+        <!-- Sidebar -left -->
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- Page Title -->
+            <div class="py-3">
+              <h4 class="fs-18 fw-semibold mb-3">Transactions</h4>
+            </div>
+
+            <!-- Filters -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <form id="filter-form" class="row g-3 align-items-end">
+                  <div class="col-md-3">
+                    <label class="form-label">Date Range</label>
+                    <select class="form-select" id="date-range">
+                      <option value="7">Last 7 days</option>
+                      <option value="30">Last 30 days</option>
+                      <option value="90">Last 90 days</option>
+                      <option value="custom">Custom Range</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3" id="custom-date-range" style="display: none;">
+                    <div class="row">
+                      <div class="col-6">
+                        <label class="form-label">From</label>
+                        <input type="date" class="form-control" id="date-from">
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label">To</label>
+                        <input type="date" class="form-control" id="date-to">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" id="status-filter">
+                      <option value="">All</option>
+                      <option value="completed">Completed</option>
+                      <option value="pending">Pending</option>
+                      <option value="failed">Failed</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Type</label>
+                    <select class="form-select" id="type-filter">
+                      <option value="">All</option>
+                      <option value="sent">Sent</option>
+                      <option value="received">Received</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    <button type="button" class="btn btn-light ms-2" id="reset-filters">Reset</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Transactions Table -->
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-centered table-hover mb-0">
+                    <thead>
+                      <tr>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Recipient</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="transactions-table">
+                      <!-- Transactions will be dynamically populated -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="row mt-3">
+                  <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="transactions-info" role="status" aria-live="polite">
+                      Showing 1 to 10 of 0 entries
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="transactions-pagination">
+                      <ul class="pagination pagination-rounded justify-content-end mb-0">
+                        <li class="paginate_button page-item previous disabled">
+                          <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                          <a href="#" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item next disabled">
+                          <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- container-fluid -->
+        </div> <!-- content -->
+
+        <!-- Transaction Details Modal -->
+        <div class="modal fade" id="transaction-modal" tabindex="-1" aria-labelledby="transaction-modal-label" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="transaction-modal-label">Transaction Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <p><strong>Transaction ID:</strong> <span id="modal-transaction-id"></span></p>
+                    <p><strong>Date:</strong> <span id="modal-date"></span></p>
+                    <p><strong>Type:</strong> <span id="modal-type"></span></p>
+                    <p><strong>Status:</strong> <span id="modal-status"></span></p>
+                  </div>
+                  <div class="col-md-6">
+                    <p><strong>Amount:</strong> <span id="modal-amount"></span></p>
+                    <p><strong>Fee:</strong> <span id="modal-fee"></span></p>
+                    <p><strong>Exchange Rate:</strong> <span id="modal-rate"></span></p>
+                    <p><strong>Total:</strong> <span id="modal-total"></span></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6>Sender Information</h6>
+                    <p><strong>Name:</strong> <span id="modal-sender-name"></span></p>
+                    <p><strong>Email:</strong> <span id="modal-sender-email"></span></p>
+                    <p><strong>Phone:</strong> <span id="modal-sender-phone"></span></p>
+                  </div>
+                  <div class="col-md-6">
+                    <h6>Recipient Information</h6>
+                    <p><strong>Name:</strong> <span id="modal-recipient-name"></span></p>
+                    <p><strong>Email:</strong> <span id="modal-recipient-email"></span></p>
+                    <p><strong>Phone:</strong> <span id="modal-recipient-phone"></span></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-12">
+                    <h6>Additional Information</h6>
+                    <p><strong>Purpose:</strong> <span id="modal-purpose"></span></p>
+                    <p><strong>Notes:</strong> <span id="modal-notes"></span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="download-receipt">Download Receipt</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Start -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <script>document.write(new Date().getFullYear())</script> &copy; PanaFX by <a href="">Coderthemes</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end Footer -->
+      </div> <!-- content-page -->
+    </div> <!-- app-layout -->
+
+    <!-- Vendor js -->
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendor/simplebar.min.js"></script>
+    <script src="../js/vendor/feather.min.js"></script>
+    <script src="../js/vendor/jquery.dataTables.min.js"></script>
+    <script src="../js/vendor/dataTables.bootstrap5.min.js"></script>
+    <script src="../js/vendor/dataTables.responsive.min.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- App js-->
+    <script>
+      // Initialize Supabase client
+      const SUPABASE_URL = "https://vgegfmocdjifohsnziyy.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnZWdmbW9jZGppZm9oc256aXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3ODUzNTMsImV4cCI6MjA1NzM2MTM1M30.hG6k5xRDe8FrPixZN5Nz5UkD1ha8RLLHGly8_67J1OI";
+      window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="../js/app.js" type="module"></script>
+    <script src="../js/helpers.js" type="module"></script>
+    <script src="../js/authService.js" type="module"></script>
+    <script src="../js/transactionService.js" type="module"></script>
+    <script src="../js/transactions-request.js" type="module"></script>
+  </body>
+</html> 

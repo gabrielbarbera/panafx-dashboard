@@ -1,0 +1,200 @@
+// Layout
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $light-color;
+  color: $dark-color;
+
+  // Layout header
+  .layout-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $z-index-fixed;
+    height: $header-height;
+    background-color: $light-color;
+    border-bottom: $border-width-base solid $border-color-base;
+    transition: $transition-base;
+
+    // Header content
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 $spacing-md;
+    }
+
+    // Header brand
+    .header-brand {
+      display: flex;
+      align-items: center;
+      color: $dark-color;
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 600;
+
+      img {
+        margin-right: $spacing-sm;
+        height: 30px;
+      }
+    }
+
+    // Header actions
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      // Action button
+      .action-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: $border-radius-base;
+        background-color: transparent;
+        color: $dark-color;
+        border: none;
+        cursor: pointer;
+        transition: $transition-base;
+
+        &:hover {
+          background-color: rgba($dark-color, 0.05);
+        }
+
+        // Badge
+        .badge {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          padding: 0.25rem 0.5rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          border-radius: $border-radius-base;
+          background-color: $primary-color;
+          color: $light-color;
+        }
+      }
+    }
+  }
+
+  // Layout body
+  .layout-body {
+    display: flex;
+    flex: 1;
+    margin-top: $header-height;
+    transition: $transition-base;
+
+    // Sidebar
+    .layout-sidebar {
+      position: fixed;
+      top: $header-height;
+      left: 0;
+      bottom: 0;
+      width: $sidebar-width;
+      background-color: $dark-color;
+      color: $light-color;
+      transition: $transition-base;
+      z-index: $z-index-fixed - 1;
+
+      &.collapsed {
+        width: $sidebar-width-collapsed;
+      }
+    }
+
+    // Main content
+    .layout-main {
+      flex: 1;
+      margin-left: $sidebar-width;
+      padding: $spacing-lg;
+      transition: $transition-base;
+
+      &.sidebar-collapsed {
+        margin-left: $sidebar-width-collapsed;
+      }
+
+      // Content header
+      .content-header {
+        margin-bottom: $spacing-lg;
+
+        .page-title {
+          margin-bottom: $spacing-sm;
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: $dark-color;
+        }
+
+        .page-description {
+          color: rgba($dark-color, 0.7);
+          line-height: 1.6;
+        }
+      }
+
+      // Content body
+      .content-body {
+        background-color: $light-color;
+        border-radius: $border-radius-base;
+        box-shadow: $box-shadow-base;
+      }
+    }
+  }
+
+  // Layout footer
+  .layout-footer {
+    margin-top: auto;
+    background-color: $dark-color;
+    color: $light-color;
+  }
+
+  // Responsive layout
+  @include media-breakpoint-down(lg) {
+    .layout-body {
+      .layout-sidebar {
+        transform: translateX(-100%);
+
+        &.show {
+          transform: translateX(0);
+        }
+      }
+
+      .layout-main {
+        margin-left: 0;
+
+        &.sidebar-collapsed {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .layout-header {
+      .header-content {
+        padding: 0 $spacing-sm;
+      }
+
+      .header-brand {
+        font-size: 1.125rem;
+
+        img {
+          height: 25px;
+        }
+      }
+    }
+
+    .layout-body {
+      .layout-main {
+        padding: $spacing-md;
+      }
+    }
+  }
+}
+
+// Variables
+$header-height: 60px;
+$sidebar-width: 250px;
+$sidebar-width-collapsed: 70px; 

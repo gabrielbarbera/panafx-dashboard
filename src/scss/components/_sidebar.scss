@@ -1,0 +1,202 @@
+// Sidebar
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-index-fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: $dark-color;
+  color: $light-color;
+  transition: $transition-base;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // Sidebar header
+  .sidebar-header {
+    padding: $spacing-md;
+    background-color: darken($dark-color, 5%);
+    border-bottom: $border-width-base solid rgba($light-color, 0.1);
+  }
+
+  // Sidebar brand
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    color: $light-color;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    img {
+      margin-right: $spacing-sm;
+      height: 30px;
+    }
+  }
+
+  // Sidebar menu
+  .sidebar-menu {
+    padding: $spacing-md 0;
+    list-style: none;
+    margin: 0;
+
+    // Menu items
+    .menu-item {
+      position: relative;
+      margin-bottom: $spacing-xs;
+
+      // Menu link
+      .menu-link {
+        display: flex;
+        align-items: center;
+        padding: $spacing-sm $spacing-md;
+        color: rgba($light-color, 0.7);
+        text-decoration: none;
+        transition: $transition-base;
+
+        &:hover {
+          color: $light-color;
+          background-color: rgba($light-color, 0.1);
+        }
+
+        // Menu icon
+        .menu-icon {
+          margin-right: $spacing-sm;
+          font-size: 1.25rem;
+          width: 20px;
+          text-align: center;
+        }
+
+        // Menu text
+        .menu-text {
+          flex: 1;
+        }
+
+        // Menu badge
+        .menu-badge {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          border-radius: $border-radius-base;
+          background-color: $primary-color;
+          color: $light-color;
+        }
+      }
+
+      // Active state
+      &.active {
+        > .menu-link {
+          color: $light-color;
+          background-color: rgba($light-color, 0.1);
+        }
+      }
+
+      // Submenu
+      .submenu {
+        display: none;
+        padding-left: $spacing-md;
+        list-style: none;
+        background-color: darken($dark-color, 3%);
+
+        &.show {
+          display: block;
+        }
+
+        .menu-link {
+          padding: $spacing-xs $spacing-md;
+          font-size: 0.875rem;
+        }
+      }
+    }
+
+    // Menu section
+    .menu-section {
+      padding: $spacing-md $spacing-md $spacing-xs;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: rgba($light-color, 0.5);
+      letter-spacing: 0.5px;
+    }
+  }
+
+  // Sidebar footer
+  .sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-md;
+    background-color: darken($dark-color, 5%);
+    border-top: $border-width-base solid rgba($light-color, 0.1);
+  }
+
+  // Collapsed state
+  &.collapsed {
+    width: 70px;
+
+    .sidebar-brand {
+      justify-content: center;
+
+      img {
+        margin-right: 0;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .menu-item {
+      .menu-link {
+        justify-content: center;
+
+        .menu-icon {
+          margin-right: 0;
+          font-size: 1.5rem;
+        }
+
+        .menu-text,
+        .menu-badge {
+          display: none;
+        }
+      }
+
+      .submenu {
+        display: none;
+      }
+    }
+
+    .menu-section {
+      text-align: center;
+      padding: $spacing-md 0 $spacing-xs;
+    }
+  }
+}
+
+// Sidebar overlay
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index-fixed - 1;
+  background-color: rgba($dark-color, 0.5);
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+// Responsive sidebar
+@include media-breakpoint-down(md) {
+  .sidebar {
+    transform: translateX(-100%);
+
+    &.show {
+      transform: translateX(0);
+    }
+  }
+} 

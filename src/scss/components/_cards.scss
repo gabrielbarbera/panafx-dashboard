@@ -1,0 +1,219 @@
+// Card
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $light-color;
+  background-clip: border-box;
+  border: $border-width-base solid $border-color-base;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-sm;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+// Card body
+.card-body {
+  flex: 1 1 auto;
+  padding: $spacing-md;
+}
+
+// Card title
+.card-title {
+  margin-bottom: $spacing-md;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+// Card subtitle
+.card-subtitle {
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-md;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $secondary-color;
+}
+
+// Card text
+.card-text {
+  margin-bottom: $spacing-md;
+  line-height: 1.6;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Card header
+.card-header {
+  padding: $spacing-md;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: $border-width-base solid $border-color-base;
+
+  &:first-child {
+    border-radius: calc($border-radius-base - $border-width-base) calc($border-radius-base - $border-width-base) 0 0;
+  }
+}
+
+// Card footer
+.card-footer {
+  padding: $spacing-md;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: $border-width-base solid $border-color-base;
+
+  &:last-child {
+    border-radius: 0 0 calc($border-radius-base - $border-width-base) calc($border-radius-base - $border-width-base);
+  }
+}
+
+// Card image
+.card-img {
+  width: 100%;
+  border-radius: calc($border-radius-base - $border-width-base);
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc($border-radius-base - $border-width-base);
+  border-top-right-radius: calc($border-radius-base - $border-width-base);
+}
+
+.card-img-bottom {
+  width: 100%;
+  border-bottom-right-radius: calc($border-radius-base - $border-width-base);
+  border-bottom-left-radius: calc($border-radius-base - $border-width-base);
+}
+
+// Card overlay
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $spacing-md;
+  border-radius: calc($border-radius-base - $border-width-base);
+  background-color: rgba($dark-color, 0.5);
+  color: $light-color;
+}
+
+// Card groups
+.card-group {
+  display: flex;
+  flex-direction: column;
+
+  > .card {
+    margin-bottom: $spacing-md;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex-flow: row wrap;
+
+    > .card {
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        .card-img-top,
+        .card-header {
+          border-top-right-radius: 0;
+        }
+
+        .card-img-bottom,
+        .card-footer {
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+        .card-img-top,
+        .card-header {
+          border-top-left-radius: 0;
+        }
+
+        .card-img-bottom,
+        .card-footer {
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+
+        .card-img-top,
+        .card-img-bottom,
+        .card-header,
+        .card-footer {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+// Card decks
+.card-deck {
+  display: flex;
+  flex-direction: column;
+
+  > .card {
+    margin-bottom: $spacing-md;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex-flow: row wrap;
+    margin-right: -$spacing-md;
+    margin-left: -$spacing-md;
+
+    > .card {
+      display: flex;
+      flex: 1 0 0%;
+      flex-direction: column;
+      margin-right: $spacing-md;
+      margin-bottom: 0;
+      margin-left: $spacing-md;
+    }
+  }
+}
+
+// Card columns
+.card-columns {
+  column-count: 1;
+  column-gap: $spacing-md;
+
+  .card {
+    display: inline-block;
+    width: 100%;
+  }
+
+  @include media-breakpoint-up(sm) {
+    column-count: 2;
+  }
+
+  @include media-breakpoint-up(md) {
+    column-count: 3;
+  }
+
+  @include media-breakpoint-up(lg) {
+    column-count: 4;
+  }
+} 

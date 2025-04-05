@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="PanaFX - Money Transfer Application" name="description">
+    <meta content="PanaFX" name="author">
+    <title>Complete Your Profile | PanaFX</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico">
+
+    <!-- App CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/app.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- Begin page -->
+    <div id="app-layout">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <div class="container-fluid">
+          <ul class="list-unstyled topnav-menu float-end mb-0">
+            <li class="dropdown notification-list topbar-dropdown">
+              <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="../images/users/default-avatar.jpg" alt="user-image" class="rounded-circle">
+                <span class="pro-user-name ms-1" id="user-name">
+                  Loading... <i class="mdi mdi-chevron-down"></i>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <a href="my-account.html" class="dropdown-item notify-item">
+                  <i class="fe-user"></i>
+                  <span>My Account</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item notify-item" id="logout-btn">
+                  <i class="fe-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- LOGO -->
+          <div class="logo-box">
+            <a href="index.html" class="logo logo-light text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-light.png" alt="" height="16">
+              </span>
+            </a>
+            <a href="index.html" class="logo logo-dark text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-dark.png" alt="" height="16">
+              </span>
+            </a>
+          </div>
+
+          <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+            <li>
+              <button class="button-menu-mobile disable-btn">
+                <i class="fe-menu"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end Topbar -->
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left-side-menu">
+        <div class="h-100" data-simplebar>
+          <!-- User box -->
+          <div class="user-box text-center">
+            <img src="../images/users/default-avatar.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+            <div class="dropdown">
+              <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false" id="sidebar-user-name">Loading...</a>
+            </div>
+          </div>
+
+          <!--- Sidemenu -->
+          <div id="sidebar-menu">
+            <ul id="side-menu">
+              <li>
+                <a href="index.html">
+                  <i class="mdi mdi-view-dashboard-outline"></i>
+                  <span> Dashboard </span>
+                </a>
+              </li>
+              <li>
+                <a href="send-money.html">
+                  <i class="mdi mdi-send"></i>
+                  <span> Send Money </span>
+                </a>
+              </li>
+              <li>
+                <a href="transactions-request.html">
+                  <i class="mdi mdi-format-list-bulleted"></i>
+                  <span> Transactions </span>
+                </a>
+              </li>
+              <li>
+                <a href="my-account.html">
+                  <i class="mdi mdi-account"></i>
+                  <span> My Account </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sidebar -->
+        </div>
+        <!-- Sidebar -left -->
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- Page Title -->
+            <div class="py-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <h4 class="fs-18 fw-semibold mb-0">Complete Your Profile</h4>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="row">
+              <div class="col-12">
+                <div class="progress mb-4" style="height: 8px;">
+                  <div class="progress-bar" role="progressbar" id="onboarding-progress" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Onboarding Form -->
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <form id="onboarding-form">
+                      <!-- Personal Information -->
+                      <div class="section" id="personal-section">
+                        <h5 class="mb-4">Personal Information</h5>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="first-name" class="form-label">First Name</label>
+                              <input type="text" class="form-control" id="first-name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="last-name" class="form-label">Last Name</label>
+                              <input type="text" class="form-control" id="last-name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="date-of-birth" class="form-label">Date of Birth</label>
+                              <input type="date" class="form-control" id="date-of-birth" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="nationality" class="form-label">Nationality</label>
+                              <select class="form-select" id="nationality" required>
+                                <option value="">Select Nationality</option>
+                                <!-- Countries will be populated dynamically -->
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="phone" class="form-label">Phone Number</label>
+                              <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="email" class="form-label">Email Address</label>
+                              <input type="email" class="form-control" id="email" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-end mt-3">
+                          <button type="button" class="btn btn-primary" onclick="nextSection('personal-section', 'address-section')">
+                            Next <i class="mdi mdi-arrow-right ms-1"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Address Information -->
+                      <div class="section" id="address-section" style="display: none;">
+                        <h5 class="mb-4">Address Information</h5>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="mb-3">
+                              <label for="street-address" class="form-label">Street Address</label>
+                              <input type="text" class="form-control" id="street-address" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="city" class="form-label">City</label>
+                              <input type="text" class="form-control" id="city" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="state" class="form-label">State/Province</label>
+                              <input type="text" class="form-control" id="state" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="postal-code" class="form-label">Postal Code</label>
+                              <input type="text" class="form-control" id="postal-code" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="country" class="form-label">Country</label>
+                              <select class="form-select" id="country" required>
+                                <option value="">Select Country</option>
+                                <!-- Countries will be populated dynamically -->
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-end mt-3">
+                          <button type="button" class="btn btn-light me-2" onclick="previousSection('address-section', 'personal-section')">
+                            <i class="mdi mdi-arrow-left me-1"></i> Previous
+                          </button>
+                          <button type="button" class="btn btn-primary" onclick="nextSection('address-section', 'identity-section')">
+                            Next <i class="mdi mdi-arrow-right ms-1"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Identity Verification -->
+                      <div class="section" id="identity-section" style="display: none;">
+                        <h5 class="mb-4">Identity Verification</h5>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="id-type" class="form-label">ID Type</label>
+                              <select class="form-select" id="id-type" required>
+                                <option value="">Select ID Type</option>
+                                <option value="passport">Passport</option>
+                                <option value="national_id">National ID</option>
+                                <option value="drivers_license">Driver's License</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="id-number" class="form-label">ID Number</label>
+                              <input type="text" class="form-control" id="id-number" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="id-expiry" class="form-label">ID Expiry Date</label>
+                              <input type="date" class="form-control" id="id-expiry" required>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="mb-3">
+                              <label class="form-label">ID Document Upload</label>
+                              <div class="dropzone" id="id-upload">
+                                <div class="fallback">
+                                  <input type="file" name="id-document" accept="image/*,.pdf" required>
+                                </div>
+                                <div class="dz-message needsclick">
+                                  <i class="mdi mdi-upload-outline display-4"></i>
+                                  <h4>Drop your ID document here or click to upload.</h4>
+                                  <span class="text-muted">
+                                    (Supported formats: JPG, PNG, PDF. Max file size: 5MB)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="mb-3">
+                              <label class="form-label">Selfie with ID</label>
+                              <div class="dropzone" id="selfie-upload">
+                                <div class="fallback">
+                                  <input type="file" name="selfie" accept="image/*" required>
+                                </div>
+                                <div class="dz-message needsclick">
+                                  <i class="mdi mdi-camera-outline display-4"></i>
+                                  <h4>Drop your selfie here or click to upload.</h4>
+                                  <span class="text-muted">
+                                    (Please hold your ID next to your face. Supported formats: JPG, PNG. Max file size: 5MB)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-end mt-3">
+                          <button type="button" class="btn btn-light me-2" onclick="previousSection('identity-section', 'address-section')">
+                            <i class="mdi mdi-arrow-left me-1"></i> Previous
+                          </button>
+                          <button type="submit" class="btn btn-success">
+                            Complete Profile <i class="mdi mdi-check ms-1"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- container-fluid -->
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <script>document.write(new Date().getFullYear())</script> &copy; PanaFX by <a href="">Coderthemes</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end Footer -->
+      </div> <!-- content-page -->
+    </div> <!-- app-layout -->
+
+    <!-- Vendor js -->
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendor/simplebar.min.js"></script>
+    <script src="../js/vendor/feather.min.js"></script>
+    <script src="../js/vendor/dropzone.min.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- App js-->
+    <script>
+      // Initialize Supabase client
+      const SUPABASE_URL = "https://vgegfmocdjifohsnziyy.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnZWdmbW9jZGppZm9oc256aXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3ODUzNTMsImV4cCI6MjA1NzM2MTM1M30.hG6k5xRDe8FrPixZN5Nz5UkD1ha8RLLHGly8_67J1OI";
+      window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="../js/app.js" type="module"></script>
+    <script src="../js/helpers.js" type="module"></script>
+    <script src="../js/authService.js" type="module"></script>
+    <script src="../js/onboarding.js" type="module"></script>
+  </body>
+</html> 

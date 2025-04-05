@@ -1,0 +1,111 @@
+// Alert
+.alert {
+  position: relative;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  border: $border-width-base solid transparent;
+  border-radius: $border-radius-base;
+}
+
+// Alert variants
+.alert-primary {
+  color: darken($primary-color, 10%);
+  background-color: rgba($primary-color, 0.1);
+  border-color: rgba($primary-color, 0.2);
+}
+
+.alert-secondary {
+  color: darken($secondary-color, 10%);
+  background-color: rgba($secondary-color, 0.1);
+  border-color: rgba($secondary-color, 0.2);
+}
+
+.alert-success {
+  color: darken($success-color, 10%);
+  background-color: rgba($success-color, 0.1);
+  border-color: rgba($success-color, 0.2);
+}
+
+.alert-danger {
+  color: darken($danger-color, 10%);
+  background-color: rgba($danger-color, 0.1);
+  border-color: rgba($danger-color, 0.2);
+}
+
+.alert-warning {
+  color: darken($warning-color, 10%);
+  background-color: rgba($warning-color, 0.1);
+  border-color: rgba($warning-color, 0.2);
+}
+
+.alert-info {
+  color: darken($info-color, 10%);
+  background-color: rgba($info-color, 0.1);
+  border-color: rgba($info-color, 0.2);
+}
+
+.alert-light {
+  color: darken($light-color, 10%);
+  background-color: rgba($light-color, 0.1);
+  border-color: rgba($light-color, 0.2);
+}
+
+.alert-dark {
+  color: darken($dark-color, 10%);
+  background-color: rgba($dark-color, 0.1);
+  border-color: rgba($dark-color, 0.2);
+}
+
+// Alert link
+.alert-link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Alert heading
+.alert-heading {
+  color: inherit;
+  margin-top: 0;
+  margin-bottom: $spacing-sm;
+}
+
+// Alert dismissible
+.alert-dismissible {
+  padding-right: $spacing-xl;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $spacing-md;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 $light-color;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+// Alert fade
+.alert.fade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+.alert.show {
+  opacity: 1;
+} 

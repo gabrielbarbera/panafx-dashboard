@@ -1,0 +1,148 @@
+// Spinner
+.spinner {
+  display: inline-block;
+  width: $spacing-md;
+  height: $spacing-md;
+  vertical-align: text-bottom;
+  border: $border-width-base solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+
+  // Spinner sizes
+  &.spinner-sm {
+    width: $spacing-sm;
+    height: $spacing-sm;
+    border-width: $border-width-base * 0.8;
+  }
+
+  &.spinner-lg {
+    width: $spacing-lg;
+    height: $spacing-lg;
+    border-width: $border-width-base * 1.2;
+  }
+
+  // Spinner variants
+  &.spinner-primary {
+    color: $primary-color;
+  }
+
+  &.spinner-secondary {
+    color: $secondary-color;
+  }
+
+  &.spinner-success {
+    color: $success-color;
+  }
+
+  &.spinner-danger {
+    color: $danger-color;
+  }
+
+  &.spinner-warning {
+    color: $warning-color;
+  }
+
+  &.spinner-info {
+    color: $info-color;
+  }
+
+  &.spinner-light {
+    color: $light-color;
+  }
+
+  &.spinner-dark {
+    color: $dark-color;
+  }
+
+  // Growing spinner
+  &.spinner-grow {
+    display: inline-block;
+    width: $spacing-md;
+    height: $spacing-md;
+    vertical-align: text-bottom;
+    background-color: currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    animation: spinner-grow 0.75s linear infinite;
+
+    &.spinner-sm {
+      width: $spacing-sm;
+      height: $spacing-sm;
+    }
+
+    &.spinner-lg {
+      width: $spacing-lg;
+      height: $spacing-lg;
+    }
+  }
+
+  // Spinner with text
+  .spinner-text {
+    margin-left: $spacing-sm;
+    font-size: 0.875rem;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  // Spinner with icon
+  .spinner-icon {
+    margin-right: $spacing-xs;
+    font-size: 0.875rem;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  // Spinner in button
+  .btn & {
+    margin-right: $spacing-xs;
+  }
+
+  // Spinner in alert
+  .alert & {
+    margin-right: $spacing-xs;
+  }
+
+  // Spinner in card
+  .card & {
+    margin: $spacing-md auto;
+  }
+
+  // Responsive spinner
+  @include media-breakpoint-down(md) {
+    width: $spacing-sm;
+    height: $spacing-sm;
+    border-width: $border-width-base * 0.8;
+
+    &.spinner-lg {
+      width: $spacing-md;
+      height: $spacing-md;
+      border-width: $border-width-base;
+    }
+
+    .spinner-text {
+      font-size: 0.75rem;
+    }
+
+    .spinner-icon {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// Spinner animations
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+} 

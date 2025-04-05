@@ -1,0 +1,214 @@
+// Headings
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-lg;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+// Paragraphs
+p {
+  margin-bottom: $spacing-md;
+  line-height: 1.6;
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: darken($primary-color, 15%);
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: 2rem;
+
+  li {
+    margin-bottom: $spacing-xs;
+  }
+}
+
+// Blockquotes
+blockquote {
+  margin: 0 0 $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  border-left: 4px solid $primary-color;
+  background-color: rgba($primary-color, 0.05);
+  font-style: italic;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Code
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  color: $danger-color;
+  background-color: rgba($danger-color, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: $border-radius-base;
+}
+
+pre {
+  display: block;
+  margin-bottom: $spacing-md;
+  padding: $spacing-md;
+  background-color: $dark-color;
+  color: $light-color;
+  border-radius: $border-radius-base;
+  overflow-x: auto;
+
+  code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+// Text utilities
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-secondary {
+  color: $secondary-color !important;
+}
+
+.text-success {
+  color: $success-color !important;
+}
+
+.text-danger {
+  color: $danger-color !important;
+}
+
+.text-warning {
+  color: $warning-color !important;
+}
+
+.text-info {
+  color: $info-color !important;
+}
+
+.text-light {
+  color: $light-color !important;
+}
+
+.text-dark {
+  color: $dark-color !important;
+}
+
+.text-muted {
+  color: $secondary-color !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.font-weight-light {
+  font-weight: 300 !important;
+}
+
+.font-weight-normal {
+  font-weight: 400 !important;
+}
+
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.font-italic {
+  font-style: italic !important;
+}
+
+// Line height
+.lh-1 {
+  line-height: 1 !important;
+}
+
+.lh-sm {
+  line-height: 1.25 !important;
+}
+
+.lh-base {
+  line-height: 1.5 !important;
+}
+
+.lh-lg {
+  line-height: 2 !important;
+}
+
+// Text truncation
+.text-truncate {
+  @include text-truncate;
+}
+
+// Text hide
+.text-hide {
+  @include text-hide;
+} 

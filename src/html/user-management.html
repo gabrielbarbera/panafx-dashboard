@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="PanaFX - Money Transfer Application" name="description">
+    <meta content="PanaFX" name="author">
+    <title>User Management | PanaFX</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico">
+
+    <!-- App CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/app.min.css" rel="stylesheet" type="text/css">
+    <!-- DataTables CSS -->
+    <link href="../css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- Begin page -->
+    <div id="app-layout">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <div class="container-fluid">
+          <ul class="list-unstyled topnav-menu float-end mb-0">
+            <li class="dropdown notification-list topbar-dropdown">
+              <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="../images/users/default-avatar.jpg" alt="user-image" class="rounded-circle">
+                <span class="pro-user-name ms-1" id="user-name">
+                  Loading... <i class="mdi mdi-chevron-down"></i>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <a href="my-account.html" class="dropdown-item notify-item">
+                  <i class="fe-user"></i>
+                  <span>My Account</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item notify-item" id="logout-btn">
+                  <i class="fe-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- LOGO -->
+          <div class="logo-box">
+            <a href="index.html" class="logo logo-light text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-light.png" alt="" height="16">
+              </span>
+            </a>
+            <a href="index.html" class="logo logo-dark text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-dark.png" alt="" height="16">
+              </span>
+            </a>
+          </div>
+
+          <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+            <li>
+              <button class="button-menu-mobile disable-btn">
+                <i class="fe-menu"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end Topbar -->
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left-side-menu">
+        <div class="h-100" data-simplebar>
+          <!-- User box -->
+          <div class="user-box text-center">
+            <img src="../images/users/default-avatar.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+            <div class="dropdown">
+              <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false" id="sidebar-user-name">Loading...</a>
+            </div>
+          </div>
+
+          <!--- Sidemenu -->
+          <div id="sidebar-menu">
+            <ul id="side-menu">
+              <li>
+                <a href="index.html">
+                  <i class="mdi mdi-view-dashboard-outline"></i>
+                  <span> Dashboard </span>
+                </a>
+              </li>
+              <li>
+                <a href="send-money.html">
+                  <i class="mdi mdi-send"></i>
+                  <span> Send Money </span>
+                </a>
+              </li>
+              <li>
+                <a href="transactions-request.html">
+                  <i class="mdi mdi-format-list-bulleted"></i>
+                  <span> Transactions </span>
+                </a>
+              </li>
+              <li>
+                <a href="my-account.html">
+                  <i class="mdi mdi-account"></i>
+                  <span> My Account </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sidebar -->
+        </div>
+        <!-- Sidebar -left -->
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- Page Title -->
+            <div class="py-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <h4 class="fs-18 fw-semibold mb-0">User Management</h4>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-light" id="refreshUsers">
+                    <i class="mdi mdi-refresh"></i> Refresh
+                  </button>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown">
+                      <i class="mdi mdi-filter"></i> Filter
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      <a class="dropdown-item" href="#" data-filter="all">All Users</a>
+                      <a class="dropdown-item" href="#" data-filter="pending">Pending Approval</a>
+                      <a class="dropdown-item" href="#" data-filter="approved">Approved</a>
+                      <a class="dropdown-item" href="#" data-filter="rejected">Rejected</a>
+                      <a class="dropdown-item" href="#" data-filter="suspended">Suspended</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Users Table Card -->
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-centered table-hover dt-responsive nowrap w-100" id="users-datatable">
+                    <thead>
+                      <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Registration Date</th>
+                        <th>Status</th>
+                        <th>KYC Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table content will be dynamically populated -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- User Details Modal -->
+            <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">User Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="nav nav-tabs nav-bordered" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#profile-tab" role="tab">Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#documents-tab" role="tab">Documents</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#transactions-tab" role="tab">Transactions</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#activity-tab" role="tab">Activity Log</a>
+                      </li>
+                    </ul>
+
+                    <div class="tab-content p-3">
+                      <!-- Profile Tab -->
+                      <div class="tab-pane fade show active" id="profile-tab" role="tabpanel">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h6 class="fs-15 mb-3">Personal Information</h6>
+                            <div class="table-responsive">
+                              <table class="table table-sm">
+                                <tr>
+                                  <td class="fw-medium">Full Name:</td>
+                                  <td id="modal-full-name"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Email:</td>
+                                  <td id="modal-email"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Phone:</td>
+                                  <td id="modal-phone"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Date of Birth:</td>
+                                  <td id="modal-dob"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Address:</td>
+                                  <td id="modal-address"></td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <h6 class="fs-15 mb-3">Account Information</h6>
+                            <div class="table-responsive">
+                              <table class="table table-sm">
+                                <tr>
+                                  <td class="fw-medium">Account Type:</td>
+                                  <td id="modal-account-type"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Status:</td>
+                                  <td id="modal-status"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Registration Date:</td>
+                                  <td id="modal-registration-date"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">Last Login:</td>
+                                  <td id="modal-last-login"></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-medium">2FA Status:</td>
+                                  <td id="modal-2fa-status"></td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Documents Tab -->
+                      <div class="tab-pane fade" id="documents-tab" role="tabpanel">
+                        <div class="row">
+                          <div class="col-12">
+                            <h6 class="fs-15 mb-3">Verification Documents</h6>
+                            <div class="table-responsive">
+                              <table class="table table-centered table-hover mb-0">
+                                <thead>
+                                  <tr>
+                                    <th>Document Type</th>
+                                    <th>Status</th>
+                                    <th>Uploaded Date</th>
+                                    <th>Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="documents-table">
+                                  <!-- Documents will be dynamically populated -->
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Transactions Tab -->
+                      <div class="tab-pane fade" id="transactions-tab" role="tabpanel">
+                        <div class="row">
+                          <div class="col-12">
+                            <h6 class="fs-15 mb-3">Recent Transactions</h6>
+                            <div class="table-responsive">
+                              <table class="table table-centered table-hover mb-0">
+                                <thead>
+                                  <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="user-transactions-table">
+                                  <!-- Transactions will be dynamically populated -->
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Activity Log Tab -->
+                      <div class="tab-pane fade" id="activity-tab" role="tabpanel">
+                        <div class="row">
+                          <div class="col-12">
+                            <h6 class="fs-15 mb-3">Activity History</h6>
+                            <div class="timeline" id="activity-timeline">
+                              <!-- Activity timeline will be dynamically populated -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <div class="dropdown d-inline-block">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Actions
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#" id="approve-user">Approve User</a>
+                        <a class="dropdown-item" href="#" id="reject-user">Reject User</a>
+                        <a class="dropdown-item" href="#" id="suspend-user">Suspend User</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#" id="delete-user">Delete User</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- container-fluid -->
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <script>document.write(new Date().getFullYear())</script> &copy; PanaFX by <a href="">Coderthemes</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end Footer -->
+      </div> <!-- content-page -->
+    </div> <!-- app-layout -->
+
+    <!-- Vendor js -->
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendor/simplebar.min.js"></script>
+    <script src="../js/vendor/feather.min.js"></script>
+    <script src="../js/vendor/jquery.dataTables.min.js"></script>
+    <script src="../js/vendor/dataTables.bootstrap5.min.js"></script>
+    <script src="../js/vendor/dataTables.responsive.min.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- App js-->
+    <script>
+      // Initialize Supabase client
+      const SUPABASE_URL = "https://vgegfmocdjifohsnziyy.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnZWdmbW9jZGppZm9oc256aXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3ODUzNTMsImV4cCI6MjA1NzM2MTM1M30.hG6k5xRDe8FrPixZN5Nz5UkD1ha8RLLHGly8_67J1OI";
+      window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="../js/app.js" type="module"></script>
+    <script src="../js/helpers.js" type="module"></script>
+    <script src="../js/authService.js" type="module"></script>
+    <script src="../js/user-management.js" type="module"></script>
+  </body>
+</html> 

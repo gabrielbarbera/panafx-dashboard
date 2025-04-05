@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="PanaFX - Money Transfer Application" name="description">
+    <meta content="PanaFX" name="author">
+    <title>Send Money | PanaFX</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico">
+
+    <!-- App CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/app.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- Begin page -->
+    <div id="app-layout">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <div class="container-fluid">
+          <ul class="list-unstyled topnav-menu float-end mb-0">
+            <li class="dropdown notification-list topbar-dropdown">
+              <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="../images/users/default-avatar.jpg" alt="user-image" class="rounded-circle">
+                <span class="pro-user-name ms-1" id="user-name">
+                  Loading... <i class="mdi mdi-chevron-down"></i>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <a href="my-account.html" class="dropdown-item notify-item">
+                  <i class="fe-user"></i>
+                  <span>My Account</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item notify-item" id="logout-btn">
+                  <i class="fe-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- LOGO -->
+          <div class="logo-box">
+            <a href="index.html" class="logo logo-light text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-light.png" alt="" height="16">
+              </span>
+            </a>
+            <a href="index.html" class="logo logo-dark text-center">
+              <span class="logo-sm">
+                <img src="../images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="../images/logo-dark.png" alt="" height="16">
+              </span>
+            </a>
+          </div>
+
+          <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+            <li>
+              <button class="button-menu-mobile disable-btn">
+                <i class="fe-menu"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end Topbar -->
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left-side-menu">
+        <div class="h-100" data-simplebar>
+          <!-- User box -->
+          <div class="user-box text-center">
+            <img src="../images/users/default-avatar.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+            <div class="dropdown">
+              <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false" id="sidebar-user-name">Loading...</a>
+            </div>
+          </div>
+
+          <!--- Sidemenu -->
+          <div id="sidebar-menu">
+            <ul id="side-menu">
+              <li>
+                <a href="index.html">
+                  <i class="mdi mdi-view-dashboard-outline"></i>
+                  <span> Dashboard </span>
+                </a>
+              </li>
+              <li>
+                <a href="send-money.html">
+                  <i class="mdi mdi-send"></i>
+                  <span> Send Money </span>
+                </a>
+              </li>
+              <li>
+                <a href="transactions-request.html">
+                  <i class="mdi mdi-format-list-bulleted"></i>
+                  <span> Transactions </span>
+                </a>
+              </li>
+              <li>
+                <a href="my-account.html">
+                  <i class="mdi mdi-account"></i>
+                  <span> My Account </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sidebar -->
+        </div>
+        <!-- Sidebar -left -->
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- Page Title -->
+            <div class="py-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <h4 class="fs-18 fw-semibold mb-0">Send Money</h4>
+              </div>
+            </div>
+
+            <!-- Send Money Form -->
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <form id="send-money-form">
+                      <!-- Recipient Information -->
+                      <div class="mb-4">
+                        <h5 class="mb-3">Recipient Information</h5>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="recipient-name" class="form-label">Full Name</label>
+                              <input type="text" class="form-control" id="recipient-name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="recipient-email" class="form-label">Email Address</label>
+                              <input type="email" class="form-control" id="recipient-email" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="recipient-phone" class="form-label">Phone Number</label>
+                              <input type="tel" class="form-control" id="recipient-phone" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="recipient-country" class="form-label">Country</label>
+                              <select class="form-select" id="recipient-country" required>
+                                <option value="">Select Country</option>
+                                <!-- Countries will be populated dynamically -->
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Transfer Details -->
+                      <div class="mb-4">
+                        <h5 class="mb-3">Transfer Details</h5>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="send-amount" class="form-label">Amount to Send</label>
+                              <div class="input-group">
+                                <select class="form-select flex-grow-0 w-auto" id="send-currency">
+                                  <option value="USD">USD</option>
+                                  <option value="EUR">EUR</option>
+                                  <option value="GBP">GBP</option>
+                                </select>
+                                <input type="number" class="form-control" id="send-amount" required min="0" step="0.01">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="receive-amount" class="form-label">Recipient Gets</label>
+                              <div class="input-group">
+                                <select class="form-select flex-grow-0 w-auto" id="receive-currency">
+                                  <option value="USD">USD</option>
+                                  <option value="EUR">EUR</option>
+                                  <option value="GBP">GBP</option>
+                                </select>
+                                <input type="number" class="form-control" id="receive-amount" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="mb-3">
+                              <label for="transfer-purpose" class="form-label">Purpose of Transfer</label>
+                              <select class="form-select" id="transfer-purpose" required>
+                                <option value="">Select Purpose</option>
+                                <option value="family">Family Support</option>
+                                <option value="business">Business Payment</option>
+                                <option value="education">Education</option>
+                                <option value="other">Other</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Payment Method -->
+                      <div class="mb-4">
+                        <h5 class="mb-3">Payment Method</h5>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="mb-3">
+                              <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="payment-method" id="payment-card" value="card" checked>
+                                <label class="form-check-label" for="payment-card">
+                                  Credit/Debit Card
+                                </label>
+                              </div>
+                              <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="payment-method" id="payment-bank" value="bank">
+                                <label class="form-check-label" for="payment-bank">
+                                  Bank Transfer
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Card Payment Form -->
+                        <div id="card-payment-form">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="mb-3">
+                                <label for="card-number" class="form-label">Card Number</label>
+                                <input type="text" class="form-control" id="card-number" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="card-expiry" class="form-label">Expiry Date</label>
+                                <input type="text" class="form-control" id="card-expiry" placeholder="MM/YY" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="card-cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="card-cvv" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Bank Transfer Form -->
+                        <div id="bank-transfer-form" style="display: none;">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="bank-name" class="form-label">Bank Name</label>
+                                <input type="text" class="form-control" id="bank-name">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="account-number" class="form-label">Account Number</label>
+                                <input type="text" class="form-control" id="account-number">
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="mb-3">
+                                <label for="routing-number" class="form-label">Routing Number</label>
+                                <input type="text" class="form-control" id="routing-number">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Transfer Summary -->
+                      <div class="mb-4">
+                        <h5 class="mb-3">Transfer Summary</h5>
+                        <div class="table-responsive">
+                          <table class="table table-sm">
+                            <tbody>
+                              <tr>
+                                <td>Transfer Amount:</td>
+                                <td class="text-end" id="summary-transfer-amount">$0.00</td>
+                              </tr>
+                              <tr>
+                                <td>Transfer Fee:</td>
+                                <td class="text-end" id="summary-fee">$0.00</td>
+                              </tr>
+                              <tr>
+                                <td>Exchange Rate:</td>
+                                <td class="text-end" id="summary-exchange-rate">1 USD = 1 USD</td>
+                              </tr>
+                              <tr class="table-active fw-bold">
+                                <td>Total to Pay:</td>
+                                <td class="text-end" id="summary-total">$0.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <!-- Terms and Submit -->
+                      <div>
+                        <div class="mb-3">
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terms-check" required>
+                            <label class="form-check-label" for="terms-check">
+                              I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a>
+                            </label>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-transfer">
+                          Send Money
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terms Modal -->
+            <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Terms content will be loaded dynamically -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- container-fluid -->
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <script>document.write(new Date().getFullYear())</script> &copy; PanaFX by <a href="">Coderthemes</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end Footer -->
+      </div> <!-- content-page -->
+    </div> <!-- app-layout -->
+
+    <!-- Vendor js -->
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendor/simplebar.min.js"></script>
+    <script src="../js/vendor/feather.min.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- App js-->
+    <script>
+      // Initialize Supabase client
+      const SUPABASE_URL = "https://vgegfmocdjifohsnziyy.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnZWdmbW9jZGppZm9oc256aXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3ODUzNTMsImV4cCI6MjA1NzM2MTM1M30.hG6k5xRDe8FrPixZN5Nz5UkD1ha8RLLHGly8_67J1OI";
+      window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="../js/app.js" type="module"></script>
+    <script src="../js/helpers.js" type="module"></script>
+    <script src="../js/authService.js" type="module"></script>
+    <script src="../js/transactionService.js" type="module"></script>
+    <script src="../js/send-money.js" type="module"></script>
+  </body>
+</html> 

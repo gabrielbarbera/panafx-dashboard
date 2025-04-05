@@ -1,0 +1,327 @@
+// Pagination
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: $border-radius-base;
+
+  // Pagination item
+  .page-item {
+    &:first-child {
+      .page-link {
+        margin-left: 0;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+      }
+    }
+
+    &:last-child {
+      .page-link {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+      }
+    }
+
+    // Page link
+    .page-link {
+      position: relative;
+      display: block;
+      padding: $spacing-sm $spacing-md;
+      margin-left: -$border-width-base;
+      line-height: 1.25;
+      color: $primary-color;
+      background-color: $light-color;
+      border: $border-width-base solid $border-color-base;
+      text-decoration: none;
+      transition: $transition-base;
+
+      &:hover {
+        z-index: 2;
+        color: darken($primary-color, 10%);
+        background-color: rgba($dark-color, 0.05);
+        border-color: $border-color-base;
+      }
+
+      &:focus {
+        z-index: 3;
+        color: darken($primary-color, 10%);
+        background-color: rgba($dark-color, 0.05);
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+      }
+    }
+
+    // Active state
+    &.active {
+      .page-link {
+        z-index: 3;
+        color: $light-color;
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+    }
+
+    // Disabled state
+    &.disabled {
+      .page-link {
+        color: $secondary-color;
+        pointer-events: none;
+        background-color: $light-color;
+        border-color: $border-color-base;
+      }
+    }
+
+    // Page item variants
+    &.page-item-primary {
+      .page-link {
+        color: $primary-color;
+        background-color: rgba($primary-color, 0.1);
+        border-color: rgba($primary-color, 0.2);
+
+        &:hover {
+          color: darken($primary-color, 10%);
+          background-color: rgba($primary-color, 0.2);
+        }
+
+        &:focus {
+          color: darken($primary-color, 10%);
+          background-color: rgba($primary-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $light-color;
+          background-color: $primary-color;
+          border-color: $primary-color;
+        }
+      }
+    }
+
+    &.page-item-secondary {
+      .page-link {
+        color: $secondary-color;
+        background-color: rgba($secondary-color, 0.1);
+        border-color: rgba($secondary-color, 0.2);
+
+        &:hover {
+          color: darken($secondary-color, 10%);
+          background-color: rgba($secondary-color, 0.2);
+        }
+
+        &:focus {
+          color: darken($secondary-color, 10%);
+          background-color: rgba($secondary-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $light-color;
+          background-color: $secondary-color;
+          border-color: $secondary-color;
+        }
+      }
+    }
+
+    &.page-item-success {
+      .page-link {
+        color: $success-color;
+        background-color: rgba($success-color, 0.1);
+        border-color: rgba($success-color, 0.2);
+
+        &:hover {
+          color: darken($success-color, 10%);
+          background-color: rgba($success-color, 0.2);
+        }
+
+        &:focus {
+          color: darken($success-color, 10%);
+          background-color: rgba($success-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $light-color;
+          background-color: $success-color;
+          border-color: $success-color;
+        }
+      }
+    }
+
+    &.page-item-danger {
+      .page-link {
+        color: $danger-color;
+        background-color: rgba($danger-color, 0.1);
+        border-color: rgba($danger-color, 0.2);
+
+        &:hover {
+          color: darken($danger-color, 10%);
+          background-color: rgba($danger-color, 0.2);
+        }
+
+        &:focus {
+          color: darken($danger-color, 10%);
+          background-color: rgba($danger-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $light-color;
+          background-color: $danger-color;
+          border-color: $danger-color;
+        }
+      }
+    }
+
+    &.page-item-warning {
+      .page-link {
+        color: $warning-color;
+        background-color: rgba($warning-color, 0.1);
+        border-color: rgba($warning-color, 0.2);
+
+        &:hover {
+          color: darken($warning-color, 10%);
+          background-color: rgba($warning-color, 0.2);
+        }
+
+        &:focus {
+          color: darken($warning-color, 10%);
+          background-color: rgba($warning-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $dark-color;
+          background-color: $warning-color;
+          border-color: $warning-color;
+        }
+      }
+    }
+
+    &.page-item-info {
+      .page-link {
+        color: $info-color;
+        background-color: rgba($info-color, 0.1);
+        border-color: rgba($info-color, 0.2);
+
+        &:hover {
+          color: darken($info-color, 10%);
+          background-color: rgba($info-color, 0.2);
+        }
+
+        &:focus {
+          color: darken($info-color, 10%);
+          background-color: rgba($info-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $light-color;
+          background-color: $info-color;
+          border-color: $info-color;
+        }
+      }
+    }
+
+    &.page-item-light {
+      .page-link {
+        color: $dark-color;
+        background-color: rgba($light-color, 0.1);
+        border-color: rgba($light-color, 0.2);
+
+        &:hover {
+          color: $dark-color;
+          background-color: rgba($light-color, 0.2);
+        }
+
+        &:focus {
+          color: $dark-color;
+          background-color: rgba($light-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $dark-color;
+          background-color: $light-color;
+          border-color: $light-color;
+        }
+      }
+    }
+
+    &.page-item-dark {
+      .page-link {
+        color: $dark-color;
+        background-color: rgba($dark-color, 0.1);
+        border-color: rgba($dark-color, 0.2);
+
+        &:hover {
+          color: $light-color;
+          background-color: rgba($dark-color, 0.2);
+        }
+
+        &:focus {
+          color: $light-color;
+          background-color: rgba($dark-color, 0.2);
+        }
+      }
+
+      &.active {
+        .page-link {
+          color: $light-color;
+          background-color: $dark-color;
+          border-color: $dark-color;
+        }
+      }
+    }
+  }
+
+  // Pagination sizes
+  &.pagination-sm {
+    .page-link {
+      padding: $spacing-xs $spacing-sm;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+  }
+
+  &.pagination-lg {
+    .page-link {
+      padding: $spacing-md $spacing-lg;
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+  }
+
+  // Pagination with icons
+  .page-link {
+    .page-icon {
+      margin-right: $spacing-xs;
+      font-size: 0.875rem;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
+
+  // Responsive pagination
+  @include media-breakpoint-down(md) {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .page-item {
+      margin-bottom: $spacing-xs;
+    }
+
+    &.pagination-lg {
+      .page-link {
+        padding: $spacing-sm $spacing-md;
+        font-size: 1rem;
+      }
+    }
+  }
+} 

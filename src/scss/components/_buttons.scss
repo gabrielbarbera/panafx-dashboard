@@ -1,0 +1,300 @@
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: $border-width-base solid transparent;
+  border-radius: $border-radius-base;
+  transition: $transition-base;
+
+  // Button variants
+  &.btn-primary {
+    color: $light-color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      background-color: darken($primary-color, 5%);
+      border-color: darken($primary-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($primary-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-secondary {
+    color: $light-color;
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+
+    &:hover {
+      background-color: darken($secondary-color, 5%);
+      border-color: darken($secondary-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($secondary-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($secondary-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-success {
+    color: $light-color;
+    background-color: $success-color;
+    border-color: $success-color;
+
+    &:hover {
+      background-color: darken($success-color, 5%);
+      border-color: darken($success-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($success-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($success-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-danger {
+    color: $light-color;
+    background-color: $danger-color;
+    border-color: $danger-color;
+
+    &:hover {
+      background-color: darken($danger-color, 5%);
+      border-color: darken($danger-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($danger-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($danger-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-warning {
+    color: $dark-color;
+    background-color: $warning-color;
+    border-color: $warning-color;
+
+    &:hover {
+      background-color: darken($warning-color, 5%);
+      border-color: darken($warning-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($warning-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($warning-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-info {
+    color: $light-color;
+    background-color: $info-color;
+    border-color: $info-color;
+
+    &:hover {
+      background-color: darken($info-color, 5%);
+      border-color: darken($info-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($info-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($info-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-light {
+    color: $dark-color;
+    background-color: $light-color;
+    border-color: $border-color-base;
+
+    &:hover {
+      background-color: darken($light-color, 5%);
+      border-color: darken($border-color-base, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($dark-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($light-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-dark {
+    color: $light-color;
+    background-color: $dark-color;
+    border-color: $dark-color;
+
+    &:hover {
+      background-color: darken($dark-color, 5%);
+      border-color: darken($dark-color, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($dark-color, 0.25);
+    }
+
+    &:disabled {
+      background-color: rgba($dark-color, 0.5);
+      border-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  // Button sizes
+  &.btn-sm {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.75rem;
+  }
+
+  &.btn-lg {
+    padding: $spacing-md $spacing-lg;
+    font-size: 1rem;
+  }
+
+  // Button block
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  // Button icon
+  .btn-icon {
+    margin-right: $spacing-xs;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  // Button group
+  .btn-group {
+    display: inline-flex;
+    vertical-align: middle;
+
+    .btn {
+      position: relative;
+      flex: 1 1 auto;
+
+      &:not(:first-child) {
+        margin-left: -$border-width-base;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  // Responsive buttons
+  @include media-breakpoint-down(md) {
+    &.btn-block-md {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// Button outline variants
+.btn-outline-primary {
+  color: $primary-color;
+  background-color: transparent;
+  background-image: none;
+  border-color: $primary-color;
+
+  &:hover {
+    color: $light-color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $primary-color;
+    background-color: transparent;
+  }
+}
+
+.btn-outline-secondary {
+  color: $secondary-color;
+  background-color: transparent;
+  background-image: none;
+  border-color: $secondary-color;
+
+  &:hover {
+    color: $light-color;
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($secondary-color, 0.5);
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $secondary-color;
+    background-color: transparent;
+  }
+}
+
+// Button toolbar
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .input-group {
+    width: auto;
+  }
+} 

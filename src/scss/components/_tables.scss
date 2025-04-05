@@ -1,0 +1,175 @@
+// Table
+.table {
+  width: 100%;
+  margin-bottom: $spacing-md;
+  color: $dark-color;
+  background-color: $light-color;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: $spacing-sm;
+    vertical-align: top;
+    border-top: $border-width-base solid $border-color-base;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * $border-width-base) solid $border-color-base;
+    font-weight: 600;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $border-width-base) solid $border-color-base;
+  }
+}
+
+// Table variants
+.table-primary {
+  background-color: rgba($primary-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($primary-color, 0.2);
+  }
+}
+
+.table-secondary {
+  background-color: rgba($secondary-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($secondary-color, 0.2);
+  }
+}
+
+.table-success {
+  background-color: rgba($success-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($success-color, 0.2);
+  }
+}
+
+.table-danger {
+  background-color: rgba($danger-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($danger-color, 0.2);
+  }
+}
+
+.table-warning {
+  background-color: rgba($warning-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($warning-color, 0.2);
+  }
+}
+
+.table-info {
+  background-color: rgba($info-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($info-color, 0.2);
+  }
+}
+
+.table-light {
+  background-color: rgba($light-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($light-color, 0.2);
+  }
+}
+
+.table-dark {
+  background-color: rgba($dark-color, 0.1);
+
+  th,
+  td {
+    border-color: rgba($dark-color, 0.2);
+  }
+}
+
+// Table responsive
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  > .table-bordered {
+    border: 0;
+  }
+}
+
+// Table bordered
+.table-bordered {
+  border: $border-width-base solid $border-color-base;
+
+  th,
+  td {
+    border: $border-width-base solid $border-color-base;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: 2 * $border-width-base;
+    }
+  }
+}
+
+// Table borderless
+.table-borderless {
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+}
+
+// Table hover
+.table-hover {
+  tbody tr {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.075);
+    }
+  }
+}
+
+// Table striped
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+// Table small
+.table-sm {
+  th,
+  td {
+    padding: $spacing-xs;
+  }
+}
+
+// Table fixed
+.table-fixed {
+  table-layout: fixed;
+}
+
+// Table caption
+caption {
+  padding-top: $spacing-sm;
+  padding-bottom: $spacing-sm;
+  color: $secondary-color;
+  text-align: left;
+  caption-side: bottom;
+} 
